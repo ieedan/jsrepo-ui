@@ -17,7 +17,7 @@
 	onMount(() => starsTween.set(stars));
 </script>
 
-<Button href={repoUrl} class="flex place-items-center gap-2">
+<Button target="_blank" href={repoUrl} class="flex place-items-center gap-2">
 	<Icons.GitHub invert class="inline" /> Star on GitHub <Icons.Star class="text-muted-foreground" />
 	<span class="font-mono">{format(starsTween.current)}</span>
 </Button>
