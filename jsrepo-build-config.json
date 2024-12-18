@@ -1,0 +1,12 @@
+{
+	"$schema": "https://unpkg.com/jsrepo@1.19.4/schemas/registry-config.json",
+	"dirs": ["./src/lib", "./src/lib/components"],
+	"doNotListBlocks": ["button", "icons", "light-switch"],
+	"doNotListCategories": ["utils"],
+	"excludeDeps": ["svelte"],
+	"includeBlocks": [],
+	"includeCategories": [],
+	"excludeBlocks": [],
+	"excludeCategories": ["components"],
+	"preview": true
+}
