@@ -1,15 +1,16 @@
 # jsrepo-ui
+
 A demo of how to create a UI library with jsrepo.
 
 ## Script
 
-I am going to show you how to create a registry with jsrepo. 
+I am going to show you how to create a registry with jsrepo.
 
-Here I have a project with a component `star-button` that we want to be able to share using jsrepo. 
+Here I have a project with a component `star-button` that we want to be able to share using jsrepo.
 
-If we open it up you can see that it depends on some other components and utilities in the project as well as some remote dependencies. 
+If we open it up you can see that it depends on some other components and utilities in the project as well as some remote dependencies.
 
-If you look at our file structure all of the components are under `./components/ui` and our utils are under `./utils`. 
+If you look at our file structure all of the components are under `./components/ui` and our utils are under `./utils`.
 
 When using jsrepo all of your `blocks` need to be placed into a `category` so in this case all of the components are in the `ui` category and the utils are under the `utils` category.
 
@@ -24,7 +25,7 @@ jsrepo init --registry
 Then we go through the prompts:
 
 ```
-┌   jsrepo  v1.19.4 
+┌   jsrepo  v1.19.4
 │
 ◇  Where are your blocks located?
 │  ./src/lib
@@ -61,12 +62,12 @@ Then we go through the prompts:
 So now it will tell us that we can run the `build:registry` script to build our registry. Lets go ahead and try that out:
 
 ```
-┌   jsrepo  v1.19.4 
+┌   jsrepo  v1.19.4
 │
 │   WARN  Skipped `C:/Users/aidan/Documents/GitHub/jsrepo-ui/src/lib/components/ui/button` subdirectories are not currently supported!
 │   WARN  Skipped `C:/Users/aidan/Documents/GitHub/jsrepo-ui/src/lib/components/ui/icons` subdirectories are not currently supported!
-│   WARN  Skipped `C:/Users/aidan/Documents/GitHub/jsrepo-ui/src/lib/components/ui/light-switch` subdirectories are not currently supported!       
-│   WARN  Skipped `C:/Users/aidan/Documents/GitHub/jsrepo-ui/src/lib/components/ui/star-button` subdirectories are not currently supported!        
+│   WARN  Skipped `C:/Users/aidan/Documents/GitHub/jsrepo-ui/src/lib/components/ui/light-switch` subdirectories are not currently supported!
+│   WARN  Skipped `C:/Users/aidan/Documents/GitHub/jsrepo-ui/src/lib/components/ui/star-button` subdirectories are not currently supported!
 ◇  Built C:/Users/aidan/Documents/GitHub/jsrepo-ui/src/lib
 │
 ◇  Built C:/Users/aidan/Documents/GitHub/jsrepo-ui/src/lib/components
@@ -82,7 +83,7 @@ So now it will tell us that we can run the `build:registry` script to build our 
 
 After doing this we get some warnings.
 
-Starting from the top we get warnings because one of our directories `./src/lib` contains both components and utils and is treating them both as categories. 
+Starting from the top we get warnings because one of our directories `./src/lib` contains both components and utils and is treating them both as categories.
 
 Lets go ahead and fix this by adding `components` to the `excludeCategories` key of our `jsrepo-build-config.json`:
 
@@ -107,7 +108,7 @@ Lets go ahead and fix this by adding `components` to the `excludeCategories` key
 Now run `build:registry` again and you will see that those warnings go away.
 
 ```
-┌   jsrepo  v1.19.4 
+┌   jsrepo  v1.19.4
 │
 ◇  Built C:/Users/aidan/Documents/GitHub/jsrepo-ui/src/lib
 │
@@ -122,7 +123,7 @@ Now run `build:registry` again and you will see that those warnings go away.
 └  All done!
 ```
 
-We still however have a warning `no-framework-dependency` suggesting that `Svelte` will be installed when we add `ui/icons`. 
+We still however have a warning `no-framework-dependency` suggesting that `Svelte` will be installed when we add `ui/icons`.
 
 This is because framework dependencies need to be explicitly ignored when they aren't inside of a `*.vue` or `*.svelte` file. So because we are importing from `svelte/elements` in the `index.ts` file jsrepo is warning us that we will also install `Svelte` when adding the icons and that it may not be what we intended.
 
@@ -149,7 +150,7 @@ To fix this error we are going to add `svelte` to the `excludeDeps` key of our c
 Now we can run `build:registry` one last time and see that we have no warnings or errors:
 
 ```
-┌   jsrepo  v1.19.4 
+┌   jsrepo  v1.19.4
 │
 ◇  Built C:/Users/aidan/Documents/GitHub/jsrepo-ui/src/lib
 │
@@ -162,12 +163,12 @@ Now we can run `build:registry` one last time and see that we have no warnings o
 └  All done!
 ```
 
-Now lets take a look at the produced manifest. 
+Now lets take a look at the produced manifest.
 
 We can run `build:registry` again with the `preview` key enabled in your config to see what users will see when running add on your registry:
 
 ```
-┌   jsrepo  v1.19.4 
+┌   jsrepo  v1.19.4
 │
 ◇  Built C:/Users/aidan/Documents/GitHub/jsrepo-ui/src/lib
 │
@@ -216,7 +217,7 @@ You'll notice that currently everything is shown to the user. We really just wan
 Now if you run `build:registry` again you will get the following output:
 
 ```
-┌   jsrepo  v1.19.4 
+┌   jsrepo  v1.19.4
 │
 ◇  Built C:/Users/aidan/Documents/GitHub/jsrepo-ui/src/lib
 │
@@ -270,19 +271,19 @@ You will now notice that there are 5 blocks there but only 1 is being listed `st
 Now if we commit these changes to the repository you will be able to add the button with:
 
 ```bash
-jsrepo add github/ieedan/jsrepo-ui/ui/star-button 
+jsrepo add github/ieedan/jsrepo-ui/ui/star-button
 ```
 
 When you add the `star-button` all of the other necessary local and remote dependencies will be include for you.
 
 Lets look at an issue you may have while creating your first registry.
 
-To demonstrate lets move the `format-number` file outside of the directories we gave to jsrepo earlier. 
+To demonstrate lets move the `format-number` file outside of the directories we gave to jsrepo earlier.
 
 By moving `format-number` to `./src/lib` we now get the following error:
 
 ```
-┌   jsrepo  v1.19.4 
+┌   jsrepo  v1.19.4
 │
 ◇  Built C:/Users/aidan/Documents/GitHub/jsrepo-ui/src/lib
 │

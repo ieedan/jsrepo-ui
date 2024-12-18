@@ -7,6 +7,5 @@
 	"includeBlocks": [],
 	"includeCategories": [],
 	"excludeBlocks": [],
-	"excludeCategories": ["components"],
-	"preview": true
+	"excludeCategories": ["components"]
 }

@@ -1,3 +1,3 @@
-import StarButton from "./star-button.svelte";
+import StarButton from './star-button.svelte';
 
-export { StarButton }
+export { StarButton };
