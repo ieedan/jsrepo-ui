@@ -1,0 +1,20 @@
+{
+	"$schema": "https://unpkg.com/jsrepo@1.20.0/schemas/registry-config.json",
+	"dirs": ["./src/lib/components", "./src/lib"],
+	"listBlocks": ["star-button"],
+	"doNotListBlocks": [],
+	"doNotListCategories": [],
+	"excludeDeps": ["svelte"],
+	"includeBlocks": [],
+	"includeCategories": ["utils", "ui"],
+	"preview": true,
+	"rules": {
+		"no-category-index-file-dependency": "warn",
+		"no-unpinned-dependency": "warn",
+		"require-local-dependency-exists": "error",
+		"max-local-dependencies": ["warn", 10],
+		"no-circular-dependency": "error",
+		"no-unused-block": "warn",
+		"no-framework-dependency": "warn"
+	}
+}
