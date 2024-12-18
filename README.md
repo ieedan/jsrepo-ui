@@ -237,6 +237,8 @@ Now if you run `build:registry` again you will get the following output:
 
 You can now see that we are only listing `star-button` when the user runs add.
 
+Another way to do this is to just add `star-button` to the `listBlocks` config key.
+
 You will now also see a warning that `ui/light-switch` is unused and will be removed. This warning is useful in case there is a block that you wanted to make sure was included in the registry that may have been unintentionally left out.
 
 If you would like to not see this warning you can turn off `no-unused-block` in your config:
